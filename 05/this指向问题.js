@@ -20,7 +20,7 @@
 
 var name = '1'
 
-//显示绑定
+//绑定
 var obj = {
     name:'2',
     f:{
@@ -35,6 +35,7 @@ obj.f.show()//3  这个是链式调用，this指向最后的函数域
 var k = obj.f.show //我的理解是这个只是找到show这个函数，并没有调用
 k()//1  调用的时候是由window调用的（好像有特定的叫法，叫隐式丢失）
 
+
 //有一点需要注意的是，在settimeout中，this指向的是全局
 var set = 'out'
 var obj1 = {
@@ -43,8 +44,50 @@ var obj1 = {
 }
 function show(){
     console.log(this.set)
+    
 }
-setTimeout(obj1.show, 1000);
+setTimeout(obj1.show1, 1000);//在node环境中输出的是undefined
+
+
+//使用call，apply和bind显示的改变this,其中call和apply只是存在参数传递方式的区别，bind不会立即绑定this,而是在调用的时候绑定（自己理解的，不知道有没错）
+var obj3 = {
+    name:'陈斌',
+    age:'20'
+}
+var obj2 = {
+    name: '德玛',
+    age:'25',
+    show:function(description,girlFriend){
+        console.log(this.name + '  ' + this.age + '描述：' + description +'    '+ '他的女朋友:' + girlFriend)
+    }
+}
+obj2.show.call(obj3,'帅','别人不敢想吧')//obj3为this指向
+
+
+obj2.show.apply(obj3,['帅','别人不敢想吧'])
+
+obj2.show.bind(obj3,'帅','别人不敢想吧')()//返回的是一个函数，需要调用生效
+
+
+//bind还可以这样传参（ps:好像没什么卵用）
+function fn4(num){
+    console.log(this.a+num)
+}
+
+var outObj = {
+    a:2
+}
+
+var obj2 = {
+    a:3,
+    show:fn4
+}
+
+var b = obj2.show.bind(outObj)
+b(6)
+
+
+
 
 
 
