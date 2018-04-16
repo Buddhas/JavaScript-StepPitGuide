@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js中setTimeout和setInterval的区别</title>
+</head>
+
+<body>
+    <script>
+        function box() {
+            setTimeout('alert("我是里面的弹框")', 3000);
+            document.write(date.getMilliseconds() + '<br>');
+        }
+        var date = new Date();
+        box();
+        alert('我是外面的弹框');
+        document.write(date.getMilliseconds() + '<br>');
+        //setTimeout('alert("过了半秒我执行")',
+        //500);
+    </script>
+</body>
+
+</html>
