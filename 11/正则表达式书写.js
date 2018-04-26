@@ -10,7 +10,9 @@
 {
     let patter = /g.*gle/    //匹配0个，一个或者多个字符
     let str = 'google'
+	let str1 = 'ggle'
     console.log(patter.test(str)) //ture
+	console.log(patter.test(str1))
 }
 
 
