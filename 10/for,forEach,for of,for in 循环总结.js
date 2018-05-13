@@ -63,7 +63,7 @@
             console.log(value)
         }
     }
-    console.log('也是可以的')
+    console.log('nice,也是可以的')
     console.log('唯独forEach是不能break，continue遍历的')
     //for of 如果想遍历对象，可以用Object.keys()实现
     {
