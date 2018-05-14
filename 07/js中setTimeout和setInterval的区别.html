@@ -9,7 +9,14 @@
 </head>
 
 <body>
-    <script>
+    <div>
+        settimeout只运行一次，也就是说设定的时间到后就触发运行指定代码，运行完后即结束。如果运行的代码中再次运行同样的settimeout命令，则可循环运行。
+        setinterval是循环运行的，即每到设定时间间隔就触发指定代码。这是真正的定时器。setinterval使用简单，而settimeout则比较灵活，可以随时退出循环，而且可以设置为按不固定的时间间隔来运行，比如第一次1秒，第二次2秒，第三次3秒……</div>
+   
+</body>
+
+</html>
+<script>
         function box() {
             setTimeout('alert("我是里面的弹框")', 3000);
             document.write(date.getMilliseconds() + '<br>');
@@ -21,6 +28,3 @@
         //setTimeout('alert("过了半秒我执行")',
         //500);
     </script>
-</body>
-
-</html>
