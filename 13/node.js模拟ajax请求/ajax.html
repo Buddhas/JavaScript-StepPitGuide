@@ -20,13 +20,13 @@
       
         var ajax = new XMLHttpRequest();
         ajax.open('get','http://localhost:8080/test=ajax');
-        
+        ajax.send();
         ajax.onreadystatechange = function(){
             if(ajax.readyState == 4 && ajax.status == 200){
                 console.log('1111');
             }
         }
-        ajax.send();
+       
 
     };
 </script>
