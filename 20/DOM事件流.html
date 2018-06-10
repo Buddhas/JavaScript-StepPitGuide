@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dom事件流</title>
+    <style>
+        .outA {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: black;
+        }
+
+        .outB {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .outC {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+
+        .content{
+            width: 500px;
+            height: 100px;
+            margin: 0 auto;
+            margin-top:20px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outA" id="outA">
+        <div class="outB" id="outB">
+            <div class="outC" id="outC"></div>
+        </div>
+    </div>
+    <div class="content">
+        dom事件流总结:将事件分为三个阶段：捕获阶段、目标阶段、冒泡阶段。先调用捕获阶段的处理函数，
+        其次调用目标阶段的处理函数，最后调用冒泡阶段的处理函数,
+        如果一个元素中绑定了相同的事件，那么根据绑定元素的先后顺序触发
+    </div>
+</body>
+
+</html>
+
+<script>
+    var outA = document.querySelector("#outA")
+    var outB = document.querySelector("#outB")
+    var outC = document.querySelector("#outC")
+
+    outC.addEventListener("click", function () {
+        console.log("target")
+    }, false)
+
+    // 事件冒泡
+    outA.addEventListener('click', function () { console.log("bubble1"); }, false);
+    outB.addEventListener('click', function () { console.log("bubble2"); }, false);
+
+    // 事件捕获
+    outA.addEventListener('click', function () { console.log("capture1"); }, false);
+    outB.addEventListener('click', function () { console.log("capture2"); }, true); 
+</script>

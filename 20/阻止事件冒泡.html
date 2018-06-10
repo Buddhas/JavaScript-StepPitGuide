@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outA {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: black;
+        }
+
+        .outB {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .outC {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outA" id="outA">
+        <div class="outB" id="outB">
+            <div class="outC" id="outC"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var outA = document.getElementById("outA");  
+        var outB = document.getElementById("outB");  
+        var outC = document.getElementById("outC");  
+
+        // 目标
+        outC.addEventListener('click',function(event){
+            console.log("target");
+            event.stopPropagation();
+        },true);
+
+        // 事件冒泡
+        outA.addEventListener('click',function(){console.log("bubble");},false);
+
+        // 事件捕获
+        outA.addEventListener('click',function(){
+            console.log("capture")
+            //event.stopPropagation()
+        },true);      
+</script>
