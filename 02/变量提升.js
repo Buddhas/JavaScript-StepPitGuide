@@ -9,7 +9,7 @@ console.log(a) // 1
 
 //函数范围内的变量提升
 function fn(){
-    console.log(a) // 1 当在函数作用域内找不到对应变量时，会向上寻找
+    console.log(a) // undefined 当在函数作用域内找不到对应变量时，会向上寻找
     console.log(b) //undefined
     var a = 2
     var b = 2
@@ -17,7 +17,7 @@ function fn(){
     console.log(a) //2
     console.log(b) //2
 }
-
+fn()
 
 //(2)函数提升
 
@@ -25,8 +25,8 @@ function fn(){
 
 console.log(fn1) //function fn1(){}
 console.log(fn2) //undefined
-
-function fn1(){}//函数声明
+fn1()
+function fn1(){console.log(1)}//函数声明
 var fn2 = function(){}//函数表达式
 
 
