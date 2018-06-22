@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件委托</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+           
+        }
+
+        .ulClass li {
+            list-style: none;
+            width: 50%;
+            height: 50px;
+            margin: 0 auto;
+            background-color: black;
+            margin-top: 10px;
+            box-shadow: 5px 5px 5px #888888;
+            border-radius: 10px;
+            color: blue;
+            text-align: center;
+            line-height: 50px;
+        }
+        .ulClass li:hover{
+            background-color: red;
+            cursor: pointer
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="ulClass">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function $(className) {
+        return document.getElementsByClassName(className)[0]
+    }
+
+    window.onload = function () {　
+        var oUl = $('ulClass')
+        oUl.addEventListener('click',function(event){
+            var ev = event || window.event;
+            var targe = ev.target || ev.srcElement;
+            
+            if(targe.nodeName.toLowerCase() == 'li'){
+                console.log(targe.innerHTML);
+            }
+        },false)
+    }
+</script>

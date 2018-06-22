@@ -33,7 +33,7 @@ var obj = {
 
 obj.f.show()//3  这个是链式调用，this指向最后的函数域
 var k = obj.f.show //我的理解是这个只是找到show这个函数，并没有调用
-k()//1  调用的时候是由window调用的（好像有特定的叫法，叫隐式丢失）
+k()//1  调用的时候是由window调用的（隐式丢失）
 
 
 //有一点需要注意的是，在settimeout中，this指向的是全局
