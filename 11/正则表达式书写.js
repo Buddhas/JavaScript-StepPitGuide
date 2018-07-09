@@ -45,8 +45,9 @@
 }
 
 {
-    let patter = /^google$/   //^匹配开头，$匹配结尾
-    let str1 = 'google'
+    console.log("匹配开头，$匹配结尾")
+    let patter = /^google$.+/   //^匹配开头，$匹配结尾
+    let str1 = 'google123'
     let str2 = 'gooooogle'
     console.log("123")
     console.log(patter.test(str1))

@@ -12,3 +12,5 @@ function throttle(func,delay){
         }
     }
 }
+
+throttle(()=>{console.log("我执行了")},1000)()

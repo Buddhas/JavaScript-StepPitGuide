@@ -12,9 +12,9 @@ function onRequest(request, response) {
         'Access-Control-Allow-Origin': '*'
     });
     console.log('我是');
-    var str = JSON.stringify(url.parse(request.url, true).query);
-    response.write('我是');
-    response.end();
+    //var str = JSON.stringify(url.parse(request.url, true).query);
+    response.write('我是....');
+    response.end(); 
 }
 function test(){
     console.log('111111111222222222');

@@ -3,12 +3,15 @@
 
 function debounce(fn,delay){
     let timeout = null
-    
+    this.id = 1
     return function(){
+        this.id = 2
         clearTimeout(timeout)
        setTimeout(() => {
+           console.log(this.id)
             fn.call(this,arguments)//箭头函没有this，绑定的是settimeOUt的this，即是window
         }, 1000);
     }
 }
+debounce(function(){console.log("我执行了")},1000)()
 
