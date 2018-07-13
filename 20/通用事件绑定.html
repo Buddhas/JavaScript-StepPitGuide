@@ -38,7 +38,7 @@
         } else {
             event.returnValue = false;
         }
-    }
+    },
 
     //根据情况分别使用dom2 || IE || dom0方式 来删除事件
     removeHandler: function(element,type,handler){
@@ -49,7 +49,7 @@
         } else {
             element["on" + type] = null;
         }
-    }
+    },
 
     //根据情况分别取消DOM或者IE中事件冒泡
     stopPropagation: function(event) {
