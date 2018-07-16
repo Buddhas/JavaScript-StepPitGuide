@@ -19,7 +19,7 @@
         //步骤一:创建异步对象
       
         var ajax = new XMLHttpRequest();
-        ajax.open('get','http://localhost:7070/test=ajax');
+        ajax.open('get','http://localhost:7070/test=ajax',true);
         ajax.send();
         ajax.onreadystatechange = function(){
             if(ajax.readyState == 4 && ajax.status == 200){
