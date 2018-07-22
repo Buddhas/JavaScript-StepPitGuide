@@ -43,6 +43,8 @@ for(var i = 0; i < 5; i++){
     outFn[i]()//很尴尬，全是五，不按套路出牌
 }
 
+
+
 //怎么解决呢，当然是匿名函数自动执行啊
 function out2(){
     var arr = []
@@ -71,4 +73,15 @@ function userOut(){
 var out = userOut()
 console.log(out())//在node中输出的undefined,在浏览器中输出的是out，比较尴尬，我之前只在浏览器中试了，我要查查资料，为什么在node中会输出undefined
 
-
+console.log("~~~~~~~~~~~~~~~~~")
+function setTime(){
+    var arr = []
+    for(var i = 0; i < 5; i++){
+        (function(num){
+            setTimeout(function(){
+                console.log(num)
+            }, 0);
+        })(i)
+    }
+}
+setTime()
