@@ -10,7 +10,7 @@
 
 //下面这个例子说明了向上找原型对象时，Function会向Object中寻找，二Object中不会向function中找
 //这是因为在function中定义的变量会向Function.prototype.__proto__找到Object
-//而在Object中没有指向
+//而在Object中没有指向function的__proto__
 var foo = {},
     F = function(){};
 
