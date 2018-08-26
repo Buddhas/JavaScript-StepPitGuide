@@ -17,3 +17,4 @@ console.log(arr1)
 
 console.log("123".split(""))
 
+

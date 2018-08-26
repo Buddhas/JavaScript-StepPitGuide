@@ -8,7 +8,7 @@
 //原型继承的原理是：当对象找不到属性时会沿着__proto__去寻找上层的原型，
 //在原型里面找到对应的属性，直到找到顶层的Object
 
-
+console.log(Object.__proto__)
 //顶层的Object的__proto__指向的是null
 {
     function F(){}

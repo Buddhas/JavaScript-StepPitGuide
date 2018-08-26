@@ -7,7 +7,7 @@
 
 var arr = []
 var obj = {}
-console.log(arr instanceof Array)//true
+console.log(arr instanceof Object)//true
 console.log(obj instanceof Array)//false
 
 
