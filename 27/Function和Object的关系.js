@@ -21,3 +21,12 @@ console.log(foo.a)    // value a
 console.log(foo.b)    // undefined
 console.log(F.a)      // value a
 console.log(F.b)      // value b
+
+function b(){
+    var a;
+    console.log(a)
+    a = 4
+    a = function(){
+        console.log(5)
+    }
+}

@@ -61,6 +61,13 @@
 }
 
 {
+    console.log("~~~~~~~~~~~~~~~~~")
+    let patter = /[1-9]{3}-\d?/
+    let str = '123-'
+    console.log(patter.test(str))
+}
+
+{
     let patter = /[\w]+\.zip|rar|gz/  //匹配压缩文件,\.代表转义
     let str1 = '123.zip'
     console.log(patter.test(str1))

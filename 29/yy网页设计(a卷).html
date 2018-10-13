@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            background-color: red;
+            animation: move 3s linear infinite alternate;
+            position: absolute;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle"></div>
+</body>
+
+</html>

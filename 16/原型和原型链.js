@@ -18,3 +18,12 @@ console.log(Object.__proto__)
     console.log(f1.__proto__)//这个属性指向的是构造这个对象的构造函数的原型，验证
     console.log(F.prototype.constructor)//constructor中包含一个指针，指回原来的构造函数,验证
 }
+
+function b(){
+    var a;
+    console.log(a)
+    a = 4
+    function a(){
+        console.log(5)
+    }
+}

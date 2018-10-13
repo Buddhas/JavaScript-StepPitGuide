@@ -26,6 +26,7 @@ console.log(typeof true) //Boolean
 console.log(typeof []) // object
 console.log(typeof {}) //object
 console.log(typeof console.log) //function
+console.log(typeof Symbol())
 
 
 //js内置函数
