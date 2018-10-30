@@ -26,7 +26,7 @@ console.log(typeof true) //Boolean
 console.log(typeof []) // object
 console.log(typeof {}) //object
 console.log(typeof console.log) //function
-console.log(typeof Symbol())
+console.log(typeof Symbol())//Symbol
 
 
 //js内置函数
@@ -39,3 +39,6 @@ console.log(typeof Symbol())
 //Date
 //RegExp
 //Error
+console.log(Object.prototype.toString.call(null)) //[object Null]
+console.log(Object.prototype.toString.call([]))  // [object Array]
+console.log([1,2] instanceof Object)

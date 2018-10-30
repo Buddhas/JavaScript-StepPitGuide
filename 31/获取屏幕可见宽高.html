@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取屏幕宽高</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 60px;
+            background-color: black;
+            padding: 25px;
+            margin: 25px;
+            border: 25px solid green;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        123
+    </div>
+    
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0];
+    console.log(box.clientHeight);//获取盒子客户端的高度,内容高度+padding * 2
+    console.log(box.offsetHeight);//获取盒子自身实际高度,内容高度 + 内边距*2 +边框*2
+    console.log(box.offsetWidth);//获取盒子自身宽度，内容高度 + 内边距*2 +边框*2
+
+    console.log('~~~~~~~~~~~~~~')
+    console.log(document.body.clientWidth)
+    console.log(document.documentElement.clientWidth)
+    window.addEventListener('resize',()=>{
+        console.log(document.documentElement.clientWidth)
+    },false)
+</script>

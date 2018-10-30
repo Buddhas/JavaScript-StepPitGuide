@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取屏幕全文宽高</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            overflow:scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        获取屏幕全文宽高，获取获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，
+        获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，
+        获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，
+        获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，
+        获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，
+        获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，获取屏幕全文宽高，屏幕全文宽高，
+    </div>
+</body>
+</html>
+<script>
+    let box = document.getElementsByClassName('box')[0]
+    console.log(box.scrollWidth) //获取全屏宽，包括滚动条部分
+    console.log(box.scrollHeight) //获取全屏高，包括滚动条
+    console.log(box.scrollTop) //获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+    //获取距离顶部的高度
+    box.addEventListener('scroll',()=>{
+        console.log(box.scrollTop)
+    },false)
+</script>

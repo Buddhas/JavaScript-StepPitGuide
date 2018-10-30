@@ -62,16 +62,6 @@ for(var i = 0; i < 5; i++){
 }
 
 
-//this指向的问题，在匿名函数中，this指向的是全局
-var user1 = 'out'
-function userOut(){
-    var user1 = 'inner'
-    return function(){
-        return this.user1
-    }
-}
-var out = userOut()
-console.log(out())//在node中输出的undefined,在浏览器中输出的是out，比较尴尬，我之前只在浏览器中试了，我要查查资料，为什么在node中会输出undefined
 
 console.log("~~~~~~~~~~~~~~~~~")
 function setTime(){
@@ -85,3 +75,14 @@ function setTime(){
     }
 }
 setTime()
+
+console.log("~~~~~~~~~~~~~~~~~")
+function fn(){
+    var arr = []
+    for(var i = 0; i < 5; i++){
+        setTimeout((a) => {
+            console.log(a)
+        }, 10,i);
+    }
+}
+fn()

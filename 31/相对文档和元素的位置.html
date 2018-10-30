@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相对文档和元素的位置</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            margin-left: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>
+<script>
+    var box = document.getElementsByClassName('box')[0]
+    box.addEventListener('click',(evnet)=>{
+        console.log(event.clientX)//相对文档的水平座标
+        console.log(event.offsetX)//相对容器的水平坐标 
+        console.log(event.clientY)//相对文档的垂直座标 
+        console.log(event.offsetY)//
+    },false)
+</script>

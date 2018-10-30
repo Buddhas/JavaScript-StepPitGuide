@@ -52,8 +52,8 @@ setTimeout(obj1.show1, 1000);//在node环境中输出的是undefined
 
 //使用call，apply和bind显示的改变this,其中call和apply只是存在参数传递方式的区别，bind不会立即绑定this,而是在调用的时候绑定（自己理解的，不知道有没错）
 var obj3 = {
-    name:'陈斌',
-    age:'20'
+    name:'德莱厄斯',
+    age:'30'
 }
 var obj2 = {
     name: '德玛',
@@ -62,12 +62,12 @@ var obj2 = {
         console.log(this.name + '  ' + this.age + '描述：' + description +'    '+ '他的女朋友:' + girlFriend)
     }
 }
-obj2.show.call(obj3,'帅','别人不敢想吧')//obj3为this指向
+obj2.show.call(obj3,'帅','维恩')//obj3为this指向
 
 
-obj2.show.apply(obj3,['帅','别人不敢想吧'])
+obj2.show.apply(obj3,['帅','维恩'])
 
-obj2.show.bind(obj3,'帅','别人不敢想吧')()//返回的是一个函数，需要调用生效
+obj2.show.bind(obj3,'帅','维恩')()//返回的是一个函数，需要调用生效
 
 
 //bind还可以这样传参（ps:好像没什么卵用）
