@@ -1,19 +1,19 @@
 
 // 方式一
-function printPorimse(num, current) {
-  if (current < num) {
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log(current+1)
-        resolve()
-      }, 1000);
-    }).then(() => {
-      printPorimse(num, ++current)
-    })
-  }
-}
+// function printPorimse(num, current) {
+//   if (current < num) {
+//     new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         console.log(current+1)
+//         resolve()
+//       }, 1000);
+//     }).then(() => {
+//       printPorimse(num, ++current)
+//     })
+//   }
+// }
 
-printPorimse(3,0)
+// printPorimse(3,0)
 
 
 

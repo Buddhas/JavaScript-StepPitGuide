@@ -8,8 +8,7 @@ function limitLoad(urls, handler, limit) {
     });
   });
   // 注意这里要将整个变量过程返回，这样得到的就是一个Promise，可以在外面链式调用
-  return sequence
-    .reduce((pCollect, url) => {
+  return sequence.reduce((pCollect, url) => {
       return pCollect
         .then(() => {
           return Promise.race(promises); // 返回已经完成的下标

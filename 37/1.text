@@ -1,0 +1,133 @@
+手写题：
+1：大数相加
+2：js拖拽
+3：千分位
+4：koa原理
+5：vue双向绑定手写
+6：promise手写
+7：发布订阅模式
+8：取交集、并集、差集
+9：reduce使用
+10：事件委托
+11：防抖和节流
+12：手写JSONP
+
+稳固方面：
+ 1：Chrome 为什么采用多进程架构 https://zhuanlan.zhihu.com/p/133239925
+ 2：flex属性
+ 3：css新特性
+ 4：event.currentTarget 与 event.target 分别是什么   event.target返回触发事件的元素   event.currentTarget返回绑定事件的元素
+ 5：OSI 网络模型，并且每层的协议
+ 6: 301和302  永久重定向和临时重定向 一般301第一次请求之后就会缓存，302对SEO不友好
+ 7：Tree Shaking 的原理  https://zhuanlan.zhihu.com/p/32554436
+ 8：网页适配方案，rem
+ 9：axios封装为拦截类是怎么实现的 https://zhuanlan.zhihu.com/p/28396592
+ 10：resolve 或者 reject 之后需不需要 return
+ 11：babel-profilly 垫片，为新api做解析  https://mp.weixin.qq.com/s/C1hxBYVbHHHWfofDvekt8Q    https://www.jianshu.com/p/73ba084795ce
+ 12：resolve 或者 reject 之后需不需要 return  需要  https://www.wodecun.com/blog/7871.html
+ 13：JSONP为什么会运行指定函数
+ 14：实现一个并发控制，有一个最大并发数，然后按照请求顺序依次打印
+ 15：接雨水
+ 16：bigInt https://segmentfault.com/a/1190000019912017?utm_source=tag-newest
+ 17：字节，位，单位的转换
+ 18：用Promise实现sleep
+ 19：object和map的区别   https://juejin.cn/post/6844903792094232584
+ 20：1px问题
+ 21: 整理 Vue 与 React 框架的所有横向对比，包括渲染原理、虚拟 dom、diff、patch、fiber、批量更新，手写响应式，框架用到的模式、设计思想，性能优化，相关生态技术等等
+ 22：react高阶组件
+react
+1：render props嵌套  https://segmentfault.com/a/1190000020494592
+2：Context 导致组件不必要重渲染的问题 https://zhuanlan.zhihu.com/p/50336226
+3：为什么没用 redux ，redux 的负担
+4：Context 导致的子组件不必要重渲染问题怎么解决
+5：React的数据为什么是单向流动的
+6：父子组件useEffect执行顺序，执行时机
+7：react生命周期
+8：react合成事件 https://zhuanlan.zhihu.com/p/338904728
+9：高阶组件 https://segmentfault.com/a/1190000019997397
+
+
+未知：
+400错误  bad require  语法错误或者请求打小 笼统的提一下错误，没有具体错误信息
+405 Method Not Allowed  请求方法不被服务器端允许
+502 Bad Gateway: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。
+503 Service Unavailable: 表示服务器当前很忙，暂时无法响应服务。
+
+
+面试参考：
+https://www.nowcoder.com/discuss/597342
+https://www.nowcoder.com/discuss/589545
+https://www.nowcoder.com/discuss/589240
+https://www.nowcoder.com/discuss/588823
+https://www.nowcoder.com/discuss/586333
+
+
+1：
+function a(){
+    console.log('1');
+}
+ 
+a();
+function a(){
+    console.log('2');
+}
+a();
+ 
+// ************
+var a = function(){
+    console.log('1');
+}
+ 
+a();
+var a = function(){
+    console.log('2');
+}
+a();
+
+2：
+function a(){
+    console.log('a')
+    b();
+    console.log('a end')
+}
+ 
+function b(){
+    console.log('b');
+    c();
+    console.log('b end')
+}
+ 
+function c(){
+    console.log('c');
+}
+ 
+a();
+
+3：
+
+function queue(list){
+        // 在这里填写。
+}
+   
+function task1(next){
+  setTimeout(function(){
+    console.log(1);
+    next();
+  }, 10000)
+}
+ 
+function task2(next){
+ 
+  console.log(2)
+  next();
+}
+ 
+function task3(next){
+ 
+  setTimeout(function(){
+    console.log(3);
+    next();
+  }, 200)
+}
+ 
+queue([task1, task2, task3])  // 1 2 3
