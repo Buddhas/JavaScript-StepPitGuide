@@ -47,6 +47,9 @@ react
 9：高阶组件 https://segmentfault.com/a/1190000019997397
 
 
+不熟：
+Array.find和Array.findIndex 返回数组第一个符合条件的值
+
 未知：
 400错误  bad require  语法错误或者请求打小 笼统的提一下错误，没有具体错误信息
 405 Method Not Allowed  请求方法不被服务器端允许
