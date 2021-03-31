@@ -105,6 +105,16 @@ MyPromise.prototype.race = (promises) => {
   })
 }
 
+MyPromise.prototype.finally = (fn) => {
+  return this.then((res) => {
+    fn()
+    return res
+  }, (error) => {
+    fn()
+    throw error
+  })
+}
+
 function resolvePromise(x, resolve, reject) {
   if (x instanceof MyPromise) {
     if (x.status == PENDING) {
