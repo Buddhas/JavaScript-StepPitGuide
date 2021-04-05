@@ -1,0 +1,44 @@
+1:react事件机制
+参考资料：https://toutiao.io/posts/28of14w/preview
+https://zhuanlan.zhihu.com/p/338904728
+react所有的事件都是注册到document上，
+原生事件会根据react自定义的plugin注册到相应的合成事件中
+各种兼容浏览器的代码也是在注册过程中完成的
+所有原生事件的listener都是dispatch函数，
+dispatch函数执行过程中会打开批量渲染开关，所以在合成事件中，setState是异步的
+我们会从点击的原生事件中找到最近的react组件实例，从而找到一条链
+
+
+原生事件（阻止冒泡）会阻止合成事件的执行
+合成事件（阻止冒泡）不会阻止原生事件的执行
+
+
+
+2：react fiber
+为了解决react-dom一次性同步更新可能造成的页面卡顿问题
+实际就是一个分片，将任务碎片化
+通过requestIdleCallback（回调空闲时执行）
+requestAnimationFrame（回调每一帧确定执行）
+
+分为两个阶段，调度阶段和提交阶段，调度阶段是可以被打断的，打断之后需要重新开始，提交阶段是不可被打断的
+可能会影响一些生命周期，导致重复执行
+componentWillMount
+componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+
+
+3：react-hook
+https://zhuanlan.zhihu.com/p/179136243
+
+4：react16新增的生命周期
+https://juejin.cn/post/6892604247893147656#heading-1
+去掉了componentWillMount
+getDerivedStateFromProps 代替 componentWillReceiveProps
+
+getDerivedStateFromProps和componentWillReceiveProps的区别
+https://blog.csdn.net/sinat_38728634/article/details/103869464
+
+getSnapshotBeforeUpdate代替componentWillUpdate
+这个方法在render方法之后，componentDidUpdate之前
+4：{} + []结果
