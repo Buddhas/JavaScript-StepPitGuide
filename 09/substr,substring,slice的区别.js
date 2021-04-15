@@ -15,7 +15,7 @@
 //substring
 {
     let str = '我的剑飞向真理'
-    let str1 = str.substring(1)//两个参数分别代表开始下标和结束下标，如果第二个参数没填，则从开始下标到字符结尾
+    let str1 = str.substring(1, 3)//两个参数分别代表开始下标和结束下标，如果第二个参数没填，则从开始下标到字符结尾
     console.log(str1)
 }
 

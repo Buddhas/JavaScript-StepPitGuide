@@ -26,6 +26,6 @@ const deleteNode = (root, key) => {
 
 
 const getMax = (root) => {
-  if (!root.right) return root
+  if (root.right == null) return root
   return getMax(root.right)
 }
