@@ -1,0 +1,114 @@
+1：jsx是如何变成dom的
+通过babel解析，CreateElement
+
+jsx 通过babel解析编译，最终会形成React.createElement
+createElement三个参数
+type 类型
+config 属性
+children 子元素
+
+然后ReactElement调用生成虚拟dom，作为参数传入我们的render函数，render函数有三个参数
+需要渲染的ReactElement,真实dom，和渲染后的回调
+
+最终渲染成真实的dom
+
+
+2：react 16为什么要改变组件生命周期
+componentReeciveProps并不是由props的变化触发的，而是由父组件的更新触发的
+15生命周期
+constructor
+mounte阶段
+willMounted
+render
+DidMounter
+
+update阶段
+receivedProps（nextProps）
+shouldComponentUpdate()
+willUpdate 
+render
+DidUpdate
+
+
+父子组件更新过程：
+父组件willMount
+父组件render
+子组件willMounted
+子组件render
+子组件Didmounted
+父组件DidMounted
+
+
+16.3生命周期
+
+willMounted删了，getDerivedStateFromProps相当于代替了WillReceiveProps
+加了getDerivedStateFromPros(props, state)：使用props来派生/更新state，父组件的props，state是自身的对象
+是个静态方法
+
+getSnapshotBeforeUpdate(preProps, prevState) 的返回值会作为第三个参数给到DidUpdate，执行时机是在render之后，真实dom
+更新之前
+
+Fiber是可以被打断的异步渲染模式
+Render16的生命周期被划分为render和commit两个阶段
+在fiber机制下，render是可以被暂停，终止和重启的
+
+
+废弃的生命周期
+
+willMounted
+willUpdate
+willReceived
+
+4：数据是如何在组件之间流动的
+
+4.1props传递
+
+
+4.2解决层层传递
+旧版本contextApi无法解决值穿透的问题，父组件的shouldUpdate返回false
+子组件就获取不到最新的值
+react16.3引入之后就解决了这个问题
+
+
+4.3 redux数据流是严格单项的
+
+5：react-hook设计动机和工作模式
+
+设计动机
+类组件和函数组件，是面向对象和函数式编程这两套不同设计思想之间的差异
+函数组件更契合react的设计理念，react组件定位就是函数，吃进数据突出ui
+函数组件会捕获render内部的状态，函数组件更加直观的把数据和渲染绑定到一起
+
+组件有副作用，引入useEffect
+
+
+为什么需要hook
+this指向
+逻辑与生命周期耦合在一起
+
+hook缺点
+过于复杂和过于拆分之间摇摆不定
+
+
+6：react-hook工作机制
+
+确保hook在每次渲染时都保持相同的顺序
+
+hook渲染时通过依次遍历来定位每个hooks内容的，如果前后两次链表在顺序上出现差异，会导致渲染结果的不同
+
+
+7：react调和算法和diff
+
+调和是  使一致的  过程
+diff是  找不同的  过程
+
+diff优化
+diff只针对相同层级的比较
+同类型的组件，才有对比的必要
+key：重用节点   
+
+
+8：fiber架构的迭代时机和设计思想
+
+JavaScript线程执行时间过长导致事件无响应，造成卡顿
+栈调和是一个同步的不可断的过程
