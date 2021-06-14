@@ -1,0 +1,35 @@
+https://blog.csdn.net/zsnpromsie/article/details/83962882?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control
+
+
+1：三目运算符的优先级比+号低
+
+
+
+2：var name = 'World!';
+
+(function () {
+     var name
+
+    if (typeof name === 'undefined')
+
+       { name = 'Jack'; console.log('Goodbye ' + name); }
+
+   else { console.log('Hello ' + name); }
+
+})();
+
+
+3：var ary = [0,1,2]; ary[10] = 10; ary.filter(function(x) { return x === undefined;});
+
+返回值为[],因为filter会自动过滤数组中不存在的项，连函数也不调用(注意如果项存在，值为undefined是不会过滤的)。
+
+4：new String() 和 String 返回的是不一样的
+
+5：对象转成字符串，先调用toString，然后是valueOf，最后不是原始值会报错
+   对象转成数字，先调用valueOf，然后是toString，最后不是原始值也会报错
+
+
+6：https://blog.csdn.net/magic_xiang/article/details/83686224
+
+
+7：移动端ios 输入框会被键盘遮挡，scrollIntoView

@@ -143,8 +143,5 @@ react在进入或者更新时都会执行一个update函数
 11：react.render是如何串联渲染链路的
 
 
-  
-
-
 
 
