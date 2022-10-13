@@ -72,6 +72,40 @@ react16.3引入之后就解决了这个问题
 
 4.3 redux数据流是严格单项的
 
+4.4 
+回调函数中，第一个参数是callback，第二个参数是依赖项
+第二个参数为空，则每次render都会执行callback
+第二个参数为空数组，则第一个render的时候才会调用
+
+useEffect 的回调函数是异步的，在下一轮事件循环才会执行
+useLayoutEffect 是【异步微任务】，在渲染线程被调用之前就执行 没有二次渲染问题，页面视觉行为一致
+
+useCallback 是缓存函数
+useMemo 是缓存函数返回值
+
+4.5
+react 合成事件
+原生事件执行顺序大于执行顺序
+16中把所有的事件都绑定在document上
+17以后把所有事件都绑定在React.render()的root上 
+阻止事件冒泡event.stopProppagation()
+
+4.6 
+为什么React并不推荐优先考虑使用Context？ 
+context的更新需要通过setState()触发，但是这并不是很可靠的，Context支持跨组件的访问，但是如果中间的子组件通过一些方法不影响更新，比如 shouldComponentUpdate() 返回false 那么不能保证Context的更新一定可以使用Context的子组件，因此，Context的可靠性需要关注
+
+4.7 受控组件和非受控组件
+https://juejin.cn/post/6858276396968951822
+在HTML的表单元素中，它们通常自己维护一套state，
+并随着用户的输入自己进行UI上的更新，这种行为是不被我们程序所管控的。
+而如果将React里的state属性和表单元素的值建立依赖关系，
+再通过onChange事件与setState()结合更新state属性，
+就能达到控制用户输入过程中表单发生的操作。
+被React以这种方式控制取值的表单输入元素就叫做受控组件。
+
+file类型的表单控件它始终是一个不受控制的组件，
+因为它的值只能由用户设置，而不是以编程方式设置。
+
 5：react-hook设计动机和工作模式
 
 设计动机

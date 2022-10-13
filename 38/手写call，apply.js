@@ -1,21 +1,13 @@
-Function.prototype.myCall = (context) {
-  const context = context || window
-
+Function.prototype.myCall = function (context = window, ...args) {
   context.fn = this
-
-  const args = [...arguments].slice(1)
-
   const result = context.fn(...args)
-
   delete context.fn
-
   return result
-
 }
 
 
 
-Function.prototype.myApply = (context) => {
+Function.prototype.myApply = function (context) {
 
   const context = context || window
 

@@ -1,10 +1,10 @@
 function limitLoad(urls, handler, limit) {
   const promises = urls.splice(0, limit).map((url, index) => {
     return handler(url).then(() => {
-      index
+      return index
     })
   })
-  
+
   return urls.reduce((p, c) => {
     p.then(() => {
       return Promise.race(promises).then(index => {
@@ -15,6 +15,6 @@ function limitLoad(urls, handler, limit) {
     }).then(() => {
       Promise.all(promises)
     })
-    
+
   }, Promise.resolve())
 }

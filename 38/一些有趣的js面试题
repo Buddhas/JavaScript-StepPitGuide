@@ -1,6 +1,6 @@
 https://blog.csdn.net/zsnpromsie/article/details/83962882?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.control
 
-
+crossorigin 标签允许获取跨域脚本的错误信息
 1：三目运算符的优先级比+号低
 
 
@@ -33,3 +33,13 @@ https://blog.csdn.net/zsnpromsie/article/details/83962882?utm_medium=distribute.
 
 
 7：移动端ios 输入框会被键盘遮挡，scrollIntoView
+
+8：js 会阻塞dom解析 
+css 不会阻塞dom解析，但是会阻塞dom渲染
+浏览器遇到 <script>且没有defer或async属性的 标签时，会触发页面渲染，
+因而如果前面CSS资源尚未加载完毕时，浏览器会等待它加载完毕在执行脚本
+
+9：
+循环引用，
+common js 循环引用会给你返回已经执行的部分，还未执行的部分不会输出（输出的是值得拷贝） 
+es6 执行的时候只是生成了一个指向被加载模块的引用，需要开发者自己保证能不能取到值（输出的是值得引用）

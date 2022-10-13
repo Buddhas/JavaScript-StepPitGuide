@@ -7,7 +7,6 @@ const print = (color) => {
   })
 }
 
-
 const test = () => {
   print('red').then(() => {
     return print('yellow')

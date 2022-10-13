@@ -13,3 +13,15 @@ Promise.resolve('2')
   .then(res => {
     console.log('finally2后面的then函数', res)
   })
+
+
+
+var friendName = 'World';
+(function () {
+  if (typeof friendName === 'undefined') {
+    var friendName = 'Jack';
+    console.log('Goodbye ' + friendName);
+  } else {
+    console.log('Hello ' + friendName);
+  }
+})();

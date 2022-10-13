@@ -1,5 +1,6 @@
+
 const print = () => {
-  const arr = [1,2,3]
+  const arr = [1, 2, 3]
 
   arr.reduce((p, c) => {
     return p.then(() => {
@@ -12,5 +13,3 @@ const print = () => {
     })
   }, Promise.resolve())
 }
-
-print(5)

@@ -1,24 +1,31 @@
 const Koa = require('koa');
 const app = new Koa();
-
+const url = require('url');
 // logger
 
 app.use(async (ctx, next) => {
-    console.log(JSON.stringify(ctx))
-  await next();
-  const rt = ctx.response.get('X-Response-Time');
-  console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+  const { pathname } = url.parse(ctx.request.url)
+  if (pathname === '/login') {
+    console.log('test')
+  }
 });
 
-// x-response-time
+// app.use(async (ctx, next) => {
+//   console.log(JSON.stringify(ctx))
+//   await next();
+//   const rt = ctx.response.get('X-Response-Time');
+//   console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+// });
 
-app.use(async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  console.log(`----`);
-  ctx.set('X-Response-Time', `${ms}ms`);
-});
+// // x-response-time
+
+// app.use(async (ctx, next) => {
+//   const start = Date.now();
+//   await next();
+//   const ms = Date.now() - start;
+//   console.log(`----`);
+//   ctx.set('X-Response-Time', `${ms}ms`);
+// });
 
 // response
 

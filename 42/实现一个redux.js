@@ -16,17 +16,17 @@ function redux(reducer, initState) {
         }
     }
 
-    dispatch({ type: new Symbol()})
+    dispatch({ type: new Symbol() })
     function getState() {
         return state
     }
 
-    return { subscribe, dispatch, getState}
+    return { subscribe, dispatch, getState }
 }
 
 function combineReduce(state = {}, reducers) {
     const keys = Object.keys(reducers);
-    return function(state, action) {
+    return function (state, action) {
         const nextState = {}
         for (const item of keys) {
             const reducer = reducers[item]
@@ -38,7 +38,7 @@ function combineReduce(state = {}, reducers) {
     }
 }
 function applyMiddlers(...fn) {
-    return function(oldCreateStore) {
+    return function (oldCreateStore) {
         return function CreatStore(reducer, state) {
             const store = oldCreateStore(reducer, state)
             let dispatch = store.dispatch

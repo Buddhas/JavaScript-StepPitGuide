@@ -34,3 +34,13 @@ const deepClone = (obj, hash = new WeakMap) => {
 const isObj = (obj) => {
   return typeof obj == 'object' || typeof obj == 'function'
 }
+
+
+const deepClone1 = (obj, hash = new WeakMap()) => {
+  let cloneObj = {}
+  const constructor = obj.constructor
+
+  for (const key in obj) {
+    cloneObj[key] = isObj(obj[key]) ? 
+  }
+}
