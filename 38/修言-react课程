@@ -92,7 +92,9 @@ react 合成事件
 
 4.6 
 为什么React并不推荐优先考虑使用Context？ 
-context的更新需要通过setState()触发，但是这并不是很可靠的，Context支持跨组件的访问，但是如果中间的子组件通过一些方法不影响更新，比如 shouldComponentUpdate() 返回false 那么不能保证Context的更新一定可以使用Context的子组件，因此，Context的可靠性需要关注
+context的更新需要通过setState()触发，但是这并不是很可靠的，Context支持跨组件的访问，
+但是如果中间的子组件通过一些方法不影响更新，比如 shouldComponentUpdate() 
+返回false 那么不能保证Context的更新一定可以使用Context的子组件，因此，Context的可靠性需要关注
 
 4.7 受控组件和非受控组件
 https://juejin.cn/post/6858276396968951822
